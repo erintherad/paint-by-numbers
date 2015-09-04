@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :password_digest, :presence => true, confirmation: true
 
   has_attached_file :avatar,
-                    :styles => { :medium => "200x200#" },
+                    :styles => { :medium => "250x250#" },
                     :storage => :s3,
                     :s3_credentials => Proc.new { |a| a.instance.s3_credentials },
                     :s3_host_name => 's3-us-west-1.amazonaws.com',
