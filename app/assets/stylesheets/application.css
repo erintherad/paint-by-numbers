@@ -22,3 +22,24 @@ html {
 body {
 	margin-top: 50px;
 }
+
+.body {
+	  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -200px;
+}
+
+footer {
+	margin-top: 200px;
+		height: 200px;
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+
+#canvasDiv {
+    border-style: solid;
+}

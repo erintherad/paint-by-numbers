@@ -1,3 +1,15 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.body {
+	  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -200px;
+}
+
+footer {
+		height: 200px;
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}

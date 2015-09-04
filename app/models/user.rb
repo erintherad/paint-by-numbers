@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => Proc.new { |a| a.instance.s3_credentials },
                     :s3_host_name => 's3-us-west-1.amazonaws.com',
-                    :path => "avatar/:id/:style/profile_image.:extension",
+                    :path => "avatar/:id/:style/avatar.:extension",
                     :default_url => "/default-profile.png"
 
 
