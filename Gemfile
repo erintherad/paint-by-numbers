@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
-
+# Kaminari
+gem 'kaminari', '~> 0.16.3'
+# paperclip
+gem "paperclip", "~> 4.3"
+# SDK for S3
+gem 'aws-sdk', '~> 1.6'
+# font awesome
+gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record

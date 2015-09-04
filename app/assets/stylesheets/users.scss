@@ -1,3 +1,53 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-page {
+  position: relative;
+  background-color: #F5F8FA;
+  padding-bottom: 100px;
+}
+
+.profile-img {
+  position: relative;
+  top: -120px;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+}
+.jumbotron {
+  background-image: url(/img/bottom-background.jpg);
+  background-size: cover;
+  height: 350px;
+}
+
+.map-section {
+  margin-top: 50px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c6c6c6;
+  border-radius: 10px;
+  padding: 40px;
+}
+.map-section button {
+  font-size: 15px;
+}
+.profile-welcome {
+  font-size: 25px;
+}
+
+.post-header {
+  font-size: 18px;
+}
+.post-body {
+  font-size: 18px;
+}
+.profile-info {
+  position: relative;
+  top: -120px;
+}
+
+
+
+

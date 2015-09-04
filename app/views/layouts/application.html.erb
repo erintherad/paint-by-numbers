@@ -43,6 +43,9 @@
 					</li>
 					<% if current_user %>
 					<li>
+						<a href="/profile">Profile</a>
+					</li>
+					<li>
 						<a href="/logout">Log Out</a>
 					</li>
 					<% else %>
@@ -59,6 +62,33 @@
 
 <%= yield %>
 
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/gallery">Gallery</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/create">Create</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small">Copyright &copy; Erin Mahoney 2015. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

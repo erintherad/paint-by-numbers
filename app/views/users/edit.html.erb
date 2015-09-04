@@ -1,0 +1,19 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <h1>Edit Profile</h1>
+  <hr>
+  <%= form_for current_user, :html => { :multipart => true } do |f| %>
+    <div class="form-group">
+      <!-- Enables flash messages within the form for superior UX -->
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
+      <% end %>
+  
+      <%= f.text_field :name, placeholder: "Name", class: "form-control" %><br>
+      <%= f.email_field :email, placeholder: "Email", class: "form-control" %><br>
+      <%= f.file_field :avatar, class: "btn" %><br>
+      <%= f.submit "Save Profile", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-4"></div>

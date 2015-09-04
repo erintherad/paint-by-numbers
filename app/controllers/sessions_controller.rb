@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if current_user
-      redirect_to root_path
+      redirect_to profile_path
     else
       render :new
     end
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to profile_path
     else
       # If user's login doesn't work, send them back to the login form.
       flash[:error] = "Oops! Check your email and password and try again!"

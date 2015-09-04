@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user
-      redirect_to root_path
+      redirect_to profile_path
     else
       @user = User.new
       render :new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       user = User.new(user_params)
       if user.save
         session[:user_id] = user.id
-        redirect_to root_path
+        redirect_to profile_path
       else
         flash[:error] = "Oops! Try again to save your account!"
         redirect_to signup_path
@@ -29,6 +29,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if current_user
+      form_params = params.require(:user).permit(:name, :email, :profile_image)
+      current_user.update_attributes(form_params)
+      redirect_to profile_path
+      # flash[:success] = "Profile successfully updated!"
+    else
+      redirect_to '/'
+    end
   end
 
   private
