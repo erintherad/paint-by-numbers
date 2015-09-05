@@ -106,7 +106,10 @@ h6 {
 }
 
 .banner {
-    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 50px;
+    // padding: 100px 0;
     color: #f8f8f8;
     background: url(/img/bottom-background.jpg) no-repeat center center;
     background-size: cover;
@@ -150,5 +153,8 @@ h6 {
     ul.banner-social-buttons > li:last-child {
         margin-bottom: 0;
     }
+}
+.bannerheader {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
