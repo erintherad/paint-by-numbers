@@ -1,2 +1,14 @@
-<h1>Paintings#new</h1>
-<p>Find me in app/views/paintings/new.html.erb</p>
+<h1>Create a new Painting</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <canvas id="canvas"></canvas>
+      <div class="form-group">
+        <%= form_for :painting, :html => { :multipart => true } do |f| %>
+          <%= f.file_field :avatar, class: "btn", id: 'fileUpload' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

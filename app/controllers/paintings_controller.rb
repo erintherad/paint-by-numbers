@@ -7,7 +7,7 @@ class PaintingsController < ApplicationController
   end
 
   def create
-    @painting = current_user.maps.new(painting_params)
+    @painting = current_user.paintings.new(painting_params)
     if @painting.save
       render json: @painting
     else
