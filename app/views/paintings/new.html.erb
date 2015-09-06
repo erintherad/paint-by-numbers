@@ -1,24 +1,28 @@
 <h1>Create a new Painting</h1>
 
 <div class="container-fluid">
-  <div class="row">
-  	<div class="col-md-3">
-  		<%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
-      <% end %>
-  	</div>
-    <div class="col-md-5">
-      <canvas id="canvas"></canvas>
-    </div>
-    <div class="col-md-3 key">
-    	<h3>Color Key:</h3>
-    	<ul id="swatches" class="list-group">
-    		<script type="text/template" id="color-template">
-    			<li class="list-group-item">
-    				<span><%%= index %> = </span>
-    				<div class="swatch" style="background-color: <%%= color %>" data-color="<%%= color %>"></div>
-    			</li>
-    		</script>
-    	</ul>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col-md-3">
+			<%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
+			<% end %>
+			<h3>Tools:</h3>
+			<a href="#" class="btn btn-default glyphicon glyphicon-erase" id="eraser"> Eraser</a>
+			<a href="#" class="btn btn-default glyphicon glyphicon-repeat" id="reset"> Reset</a>
+			<a href="#" class="btn btn-default glyphicon glyphicon-download-alt" id="download" download="paintdrop.jpg"> Download</a>
+		</div>
+		<div class="col-md-5">
+			<canvas id="canvas"></canvas>
+		</div>
+		<div class="col-md-3 key">
+			<h3>Color Key:</h3>
+			<ul id="swatches" class="list-group">
+				<script type="text/template" id="color-template">
+					<li class="list-group-item">
+						<span><%%= index %> = </span>
+						<div class="swatch" style="background-color: <%%= color %>" data-color="<%%= color %>"></div>
+					</li>
+				</script>
+			</ul>
+		</div>
+	</div>
 </div>

@@ -2,10 +2,10 @@ Dropzone.autoDiscover = false;
 
 $(function() {
 	var colors = new Set();
-	var activeColor = null;
+	var activeColor = "#FFFFFF"; // default to white
 	var colorTemplate = _.template($('#color-template').html());
 
-	var canvas = new fabric.Canvas('canvas', {width: 500, height: 500});
+	var canvas = new fabric.Canvas('canvas', { width: 500, height: 500, renderOnAddRemove: false });
 
 	var myDropzone = new Dropzone("#fileUpload");
 
@@ -15,6 +15,7 @@ $(function() {
 		fabric.loadSVGFromString(response.svg, function(objects, options) {
 			// for each path
 			for(var i = 0; i < objects.length; i++) {
+
 				var path = objects[i];
 				// collect unique colors
 				colors.add(path.getFill());
@@ -29,6 +30,11 @@ $(function() {
 				canvas.add(path);
 			}
 
+			// add the paths to the canvas and render
+			canvas.renderAll();
+			$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
+
+
 			// iterate through colors
 			var index = 0;
 			colors.forEach(function(color) {
@@ -42,19 +48,33 @@ $(function() {
 				$('#swatches').append($swatch);
 				addSwatchEventHandlers();
 			});
-
-			// add the paths to the canvas and render
-			canvas.renderAll();
 		});
 	});
 
+	// choose color from key
 	var addSwatchEventHandlers = function() {
 		$('.swatch').on('click', function(event) {
 			activeColor = $(this).attr('data-color');
 		});
 	};
 
-	
+	// erase tool
+	$('#eraser').on('click', function(event) {
+		event.preventDefault();
+		activeColor = '#ffffff';
+	});
+
+	// reset tool
+	$('#reset').on('click', function(event) {
+		event.preventDefault();
+		var paths = canvas.getObjects();
+		for(var i = 0; i < paths.length; i++) {
+			paths[i].setFill('#FFFFFF');
+		}
+		canvas.renderAll();
+		$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
+	});
+
 	canvas.on('mouse:down', function(options) {
 		// find path at click
 		var path = options.target;
@@ -62,5 +82,6 @@ $(function() {
 		path.setFill(activeColor);
 		// re-render the canvas
 		canvas.renderAll();
+		$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
 	});
 });
