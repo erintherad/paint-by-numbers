@@ -20,59 +20,20 @@
 
 	<!-- Page Features -->
 	<div class="row text-center">
-
-		<div class="col-md-3 col-sm-6 hero-feature">
-			<div class="thumbnail">
-				<img src="http://placehold.it/800x500" alt="">
-				<div class="caption">
-					<h3>A snowy landscape</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<p>
-						<a href="#" class="btn btn-primary">Share</a> <a href="#" class="btn btn-default">More Info</a>
-					</p>
+		<% @paintings.each do |painting| %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<img src="<%= painting.url %>" alt="">
+					<div class="caption">
+						<h3><%= painting.title %></h3>
+						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+						<div>
+							<a href="#" class="btn btn-primary">Share</a>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="col-md-3 col-sm-6 hero-feature">
-			<div class="thumbnail">
-				<img src="http://placehold.it/800x500" alt="">
-				<div class="caption">
-					<h3>City Scene</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<p>
-						<a href="#" class="btn btn-primary">Share</a> <a href="#" class="btn btn-default">More Info</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-3 col-sm-6 hero-feature">
-			<div class="thumbnail">
-				<img src="http://placehold.it/800x500" alt="">
-				<div class="caption">
-					<h3>Simple Portrait</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<p>
-						<a href="#" class="btn btn-primary">Share</a> <a href="#" class="btn btn-default">More Info</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-3 col-sm-6 hero-feature">
-			<div class="thumbnail">
-				<img src="http://placehold.it/800x500" alt="">
-				<div class="caption">
-					<h3>Flowers in Vase</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<p>
-						<a href="#" class="btn btn-primary">Share</a> <a href="#" class="btn btn-default">More Info</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
+		<% end %>
 	</div>
 	<!-- /.row -->
 </div>

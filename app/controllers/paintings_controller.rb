@@ -10,7 +10,7 @@ class PaintingsController < ApplicationController
     @painting = current_user.paintings.new(painting_params)
 
     if @painting.save
-      render json: @painting
+      redirect_to gallery_path
     else
       flash[:error] = "Oops! Try saving your painting again."
       render json: { errors: @map.errors.full_messages }, status: :unprocessable_entity
@@ -24,7 +24,7 @@ class PaintingsController < ApplicationController
 
   def edit
     painting_id = params[:id]
-    @paiting = Painting.find(painting_id)
+    @painting = Painting.find(painting_id)
   end
 
   def update
@@ -32,17 +32,17 @@ class PaintingsController < ApplicationController
     painting = Painting.find(painting_id)
     update_params = params.require(:painting).permit(:title)
     if painting.update_attributes(update_params)
-      redirect_to gallery_path
+      redirect_to profile_path
       flash[:success] = "Painting successfully updated!"
     else
-      redirect_to gallery_path
+      redirect_to profile_path
       flash[:error] = "Oops! Try updating again!"
     end
   end
 
   def destroy
     Painting.find(params[:id]).destroy
-    redirect_to gallery_path
+    redirect_to profile_path
   end
 
   private

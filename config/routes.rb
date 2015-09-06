@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   get "/create", to: "paintings#new"
-  get "/gallery", to: "pages#gallery"
+  get "/gallery", to: "pages#gallery", as: 'gallery'
 
   post '/render-svg', to: 'svg#create'
 

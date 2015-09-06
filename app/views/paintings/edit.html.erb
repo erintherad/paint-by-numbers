@@ -1,2 +1,12 @@
-<h1>Paintings#edit</h1>
-<p>Find me in app/views/paintings/edit.html.erb</p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+	<h1>Edit Painting Title</h1>
+	<hr>
+	<%= form_for @painting do |f| %>
+	<div class="form-group">
+		<%= f.text_field :title, placeholder: "Title", class: "form-control" %><br>
+		<%= f.submit "Update Title", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
+<div class="col-md-4"></div>

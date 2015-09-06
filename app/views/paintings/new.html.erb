@@ -9,6 +9,13 @@
 			<a href="#" class="btn btn-default glyphicon glyphicon-erase" id="eraser"> Eraser</a>
 			<a href="#" class="btn btn-default glyphicon glyphicon-repeat" id="reset"> Reset</a>
 			<a href="#" class="btn btn-default glyphicon glyphicon-download-alt" id="download" download="paintdrop.jpg"> Download</a>
+			<hr>
+			<h3>Add to the gallery:</h3>
+			<%= form_for :painting, :html => { :multipart => true }, :url => paintings_url do |f| %>
+				<%= f.text_field :title, placeholder: "Title your painting", class: "form-control" %>
+				<%= f.hidden_field :url %>
+				<%= f.submit "Save", class: "btn btn-primary" %>
+			<% end %>
 		</div>
 		<div class="col-md-5">
 			<canvas id="canvas"></canvas>

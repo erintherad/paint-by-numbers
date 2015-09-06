@@ -31,6 +31,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def show
+    @paintings = current_user.paintings
+  end
+
   def update
     if current_user
       form_params = params.require(:user).permit(:name, :email, :avatar)

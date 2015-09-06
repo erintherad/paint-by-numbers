@@ -83,5 +83,6 @@ $(function() {
 		// re-render the canvas
 		canvas.renderAll();
 		$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
+		$('input#painting_url').attr('value', canvas.toDataURL({ format: 'jpeg' }));
 	});
 });

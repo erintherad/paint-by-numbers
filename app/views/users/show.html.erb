@@ -12,7 +12,27 @@
     <div class="col-md-1"></div>
     <div class="col-md-6">
       <span class="profile-welcome">Welcome <%= current_user.name %>!
-        <span><%= link_to "update profile", edit_user_path(current_user), class: "btn btn-default pull-right" %></span>  
+        <span><%= link_to "update profile", edit_user_path(current_user), class: "btn btn-default pull-right" %></span> 
+        <!-- Page Features -->
+        <div class="row text-center">
+          <% @paintings.each do |painting| %>
+            <div class="center-block">
+              <div class="thumbnail">
+                <img src="<%= painting.url %>" alt="">
+                <div class="caption">
+                  <h3><%= painting.title %></h3>
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <div>
+                    <a href="#" class="btn btn-primary">Share</a>
+                    <%= link_to 'Edit', edit_painting_path(painting), class: "btn btn-success" %>
+                    <%= link_to 'Delete', painting, method: :delete, class: "btn btn-danger" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- /.row --> 
     </div>
   </div>
   <div class="col-md-1"></div>

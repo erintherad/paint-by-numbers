@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 	end
 
 	def gallery
+		@paintings = Painting.all
 	end
 	
 end
