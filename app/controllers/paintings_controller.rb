@@ -8,6 +8,7 @@ class PaintingsController < ApplicationController
 
   def create
     @painting = current_user.paintings.new(painting_params)
+
     if @painting.save
       render json: @painting
     else

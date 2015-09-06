@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   get "/create", to: "paintings#new"
   get "/gallery", to: "pages#gallery"
+
+  post '/render-svg', to: 'svg#create'
+
   resources :paintings
 end
 
