@@ -2,10 +2,23 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <canvas id="canvas"></canvas>
-      <%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
+  	<div class="col-md-3">
+  		<%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
       <% end %>
+  	</div>
+    <div class="col-md-5">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="col-md-3 key">
+    	<h3>Color Key:</h3>
+    	<ul id="swatches" class="list-group">
+    		<script type="text/template" id="color-template">
+    			<li class="list-group-item">
+    				<span><%%= index %> = </span>
+    				<div class="swatch" style="background-color: <%%= color %>" data-color="<%%= color %>"></div>
+    			</li>
+    		</script>
+    	</ul>
     </div>
   </div>
 </div>

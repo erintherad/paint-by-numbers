@@ -6,3 +6,16 @@
 	width: 500px;
 	height: 500px;
 }
+
+.canvas-container {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.swatch {
+	width: 60px;
+	height: 40px;
+	border-style: solid;
+	display: inline-block;
+}
