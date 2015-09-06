@@ -10,23 +10,30 @@
 			<a href="#" class="btn btn-default glyphicon glyphicon-repeat" id="reset"> Reset</a>
 			<a href="#" class="btn btn-default glyphicon glyphicon-download-alt" id="download" download="paintdrop.jpg"> Download</a>
 			<hr>
-			<h3>Add to the gallery:</h3>
-			<%= form_for :painting, :html => { :multipart => true }, :url => paintings_url do |f| %>
-				<%= f.text_field :title, placeholder: "Title your painting", class: "form-control" %>
-				<%= f.hidden_field :url %>
-				<%= f.submit "Save", class: "btn btn-primary" %>
+			<% if current_user %>
+				<h3>Add to the gallery:</h3>
+				<%= form_for :painting, :html => { :multipart => true }, :url => paintings_url do |f| %>
+					<%= f.text_field :title, placeholder: "Title your painting", class: "form-control" %>
+					<%= f.hidden_field :url %>
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				<% end %>
+			<% else %>
+				<div class="text-center">
+					<p>Share your painting to our global gallery!</p>  
+					<p><a href="/signup">Sign up</a> or <a href="/login">login</a>.</p>
+				</div>
 			<% end %>
 		</div>
 		<div class="col-md-5">
 			<canvas id="canvas"></canvas>
 		</div>
 		<div class="col-md-3 key">
-			<h3>Color Key:</h3>
+			<h3>Choose a color: </h3>
 			<ul id="swatches" class="list-group">
 				<script type="text/template" id="color-template">
-					<li class="list-group-item">
+					<li class="list-group-item color-picker" data-color="<%%= color %>">
 						<span><%%= index %> = </span>
-						<div class="swatch" style="background-color: <%%= color %>" data-color="<%%= color %>"></div>
+						<div class="swatch" style="background-color: <%%= color %>"></div>
 					</li>
 				</script>
 			</ul>

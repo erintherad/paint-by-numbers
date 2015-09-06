@@ -53,7 +53,10 @@ $(function() {
 
 	// choose color from key
 	var addSwatchEventHandlers = function() {
-		$('.swatch').on('click', function(event) {
+		$('.color-picker').on('click', function(event) {
+			$('.color-picker').removeClass('active');
+			$(this).addClass('active');
+
 			activeColor = $(this).attr('data-color');
 		});
 	};
