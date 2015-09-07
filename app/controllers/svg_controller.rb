@@ -7,7 +7,7 @@ class SvgController < ApplicationController
 		# random temp file name
 		file_name = "/tmp/#{SecureRandom.hex}"
 		# resize and posterize using imagemagick
-		image.resize_to_fill(500, 500).posterize(2).write(file_name)
+		image.resize_to_fill(500, 500).posterize(3).write(file_name)
 		# use autotrace to generate svg
 		svg = `autotrace --input-format pnm --output-format svg #{file_name}`
 

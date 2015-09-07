@@ -1,9 +1,8 @@
 <!-- Jumbotron Header -->
 	<header class="jumbotron banner bannerheader">
-		<h1>The PbN Gallery</h1>
-		<p>View the amazing Paint By Numbers projects that our users have created.</p>
-		<p>Click on each project to show more information about each piece. Or share it to social media.</p>
-		<p><a class="btn btn-default btn-lg" ng-href="/create">Or create your own!</a>
+		<h1>The Paintdrop Gallery</h1>
+		<p>Browse through the amazing gallery of paintings created by our users and share them.</p>
+		<p><a class="btn btn-default btn-lg" href="/create">Or create your own!</a>
 		</p>
 	</header>
 
@@ -27,7 +26,7 @@
 					<div class="caption">
 						<hr>
 						<h3><%= painting.title %></h3>
-						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+						<p>By <%= painting.user.name %></p>
 						<div>
 							<a href="#" class="btn btn-primary">Share</a>
 						</div>
