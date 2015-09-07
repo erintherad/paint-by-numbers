@@ -19,10 +19,6 @@ html {
     height: 100%;
 }
 
-body {
-	margin-top: 60px;
-}
-
 .body {
 	  min-height: 100%;
   /* equal to footer height */
@@ -39,7 +35,21 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
-
-#canvasDiv {
-    border-style: solid;
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+.navbar-brand {
+    background: url(/logo/logo.png) no-repeat;
+    background-size: 60%;
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: -10px;
+}
+.navbar-inner {
+  background:transparent;
 }

@@ -18,8 +18,8 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = Painting.find_by(params[:id])
-    render json: @painting
+    @painting = Painting.find(params[:id])
+    render :show
   end
 
   def edit

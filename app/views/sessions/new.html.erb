@@ -4,11 +4,6 @@
 	<hr>
 	<%= form_for :user, url: sessions_path, :html => {:id => "login-form"} do |f| %>
 	  <div class="form-group">
-
-			<% flash.each do |name, msg| %>
-		    <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
-		  <% end %>
-
 	    <%= f.email_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
 	  </div>
 	  <div class="form-group">

@@ -16,26 +16,41 @@
         <!-- Page Features -->
         <div class="row text-center">
           <% @paintings.each do |painting| %>
-            <div class="center-block">
-              <div class="thumbnail">
-                <img src="<%= painting.url %>" alt="">
-                <div class="caption">
-                  <hr>
-                  <h3><%= painting.title %></h3>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
-                  <div>
-                    <a href="#" class="btn btn-primary">Share</a>
-                    <%= link_to 'Edit', edit_painting_path(painting), class: "btn btn-success" %>
-                    <%= link_to 'Delete', painting, method: :delete, class: "btn btn-danger" %>
-                  </div>
+          <div class="center-block post">
+            <div class="thumbnail">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <p class="navbar-text"><%= painting.title %></p>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle glyphicon glyphicon-chevron-down" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                        <ul class="dropdown-menu">
+                          <li><%= link_to 'Edit', edit_painting_path(painting) %></li>
+                          <li><%= link_to 'Delete', painting, method: :delete %></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+              <img src="<%= painting.url %>" alt="">
+              <div>
+                <hr>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                <div class="social">
+                  <a class="btn btn-default" href="https://www.facebook.com/sharer/sharer.php?" + "<%= profile_path(@painting) %>"target="_blank"><i class="fa fa-facebook-square"></i> Share</a>
+                  <a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= profile_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i> Tweet</a>
                 </div>
               </div>
             </div>
+          </div>
           <% end %>
         </div>
         <!-- /.row --> 
+      </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
-  <div class="col-md-1"></div>
-</div>
 </div>
