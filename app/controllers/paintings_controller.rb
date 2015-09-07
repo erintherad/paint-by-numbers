@@ -13,7 +13,7 @@ class PaintingsController < ApplicationController
       redirect_to gallery_path
     else
       flash[:error] = "Oops! Try saving your painting again."
-      render json: { errors: @map.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @painting.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

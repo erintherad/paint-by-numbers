@@ -1,7 +1,7 @@
 Dropzone.autoDiscover = false;
 
 $(function() {
-	var colors = new Set();
+	var colors;
 	var activeColor = "#FFFFFF"; // default to white
 	var colorTemplate = _.template($('#color-template').html());
 
@@ -13,6 +13,15 @@ $(function() {
 	myDropzone.on("success", function(file, response) {
 		// load the svg string from the response
 		fabric.loadSVGFromString(response.svg, function(objects, options) {
+			// reset canvas
+			canvas.clear();
+			// remove all color swatches
+			$('#swatches').empty();
+			// reset colors Set
+			colors = new Set();
+			// reset activeColor
+			activeColor = "#FFFFFF";
+
 			// for each path
 			for(var i = 0; i < objects.length; i++) {
 
@@ -33,7 +42,6 @@ $(function() {
 			// add the paths to the canvas and render
 			canvas.renderAll();
 			$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
-
 
 			// iterate through colors
 			var index = 0;
@@ -56,14 +64,15 @@ $(function() {
 		$('.color-picker').on('click', function(event) {
 			$('.color-picker').removeClass('active');
 			$(this).addClass('active');
-
 			activeColor = $(this).attr('data-color');
+			$('#eraser').removeClass('active');
 		});
 	};
 
 	// erase tool
 	$('#eraser').on('click', function(event) {
 		event.preventDefault();
+		$('#eraser').toggleClass('active');
 		activeColor = '#ffffff';
 	});
 
@@ -76,6 +85,14 @@ $(function() {
 		}
 		canvas.renderAll();
 		$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
+	});
+
+	canvas.on('mouse:move', function(options) {
+		if($('#eraser').hasClass('active')) {
+			canvas.setCursor('url(/img/eraser.png),default');
+		} else {
+			canvas.setCursor('url(/img/paint-cursor.png),default');
+		}
 	});
 
 	canvas.on('mouse:down', function(options) {

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 	end
 
 	def gallery
-		@paintings = Painting.all
+		@paintings = Painting.all.order(created_at: :desc)
 	end
 	
 end
