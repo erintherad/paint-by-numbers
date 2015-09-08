@@ -27,13 +27,13 @@ html {
 
 footer {
 	margin-top: 200px;
-		height: 200px;
-    padding: 50px 0;
-    background-color: #f8f8f8;
+	height: 200px;
+  padding: 50px 0;
+  background-color: #f8f8f8;
 }
 
-p.copyright {
-    margin: 15px 0 0;
+.copyright {
+  margin: 15px 0 0;
 }
 .navbar {
    background-color: transparent;
@@ -42,13 +42,13 @@ p.copyright {
 }
 .navbar-brand {
     background: url(/logo/logo.png) no-repeat;
-    background-size: 60%;
+    background-size: 100%;
     position: absolute;
     top: 10px;
     left: 60px;
-    padding-right: 100px;
+/*    padding-right: 100px;
     padding-top: 100px;
-    padding-bottom: -10px;
+    padding-bottom: -10px;*/
 }
 .navbar-inner {
   background:transparent;
