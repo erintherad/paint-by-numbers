@@ -22,7 +22,7 @@
                 <div class="container-fluid">
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <p class="navbar-text"><%= painting.title %></p>
+                    <p class="navbar-text"><a href="<%= painting_path(painting) %>"><%= painting.title %></a></p>
                     <ul class="nav navbar-nav navbar-right">
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle glyphicon glyphicon-chevron-down" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
@@ -40,8 +40,7 @@
                 <hr>
                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                 <div class="social">
-                  <a class="btn btn-default" href="https://www.facebook.com/sharer/sharer.php?" + "<%= profile_path(@painting) %>"target="_blank"><i class="fa fa-facebook-square"></i> Share</a>
-                  <a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= profile_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i> Tweet</a>
+                  <a class="btn btn-default" href="<%= painting_path(painting) %>">Share</a>
                 </div>
               </div>
             </div>

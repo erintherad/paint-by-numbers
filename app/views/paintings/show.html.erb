@@ -1,6 +1,4 @@
-<div class="col-md-12">
-	<div class="col-md-4"></div>
-	<div class="col-md-4 post">
+	<div class="col-md-6 col-md-offset-3 post">
 		<div class="well text-center">
 			<%= image_tag @painting.url, class: "center-block" %>
 			<h3><%= @painting.title %></h3><br>
@@ -11,5 +9,3 @@
 				<a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= painting_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
 		</div>
 	</div>
-	<div class="col-md-4"></div>
-</div>
