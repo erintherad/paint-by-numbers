@@ -1,7 +1,7 @@
 Dropzone.autoDiscover = false;
 
 $(function() {
-	var colors;
+	var colorsHash;
 	var activeColor = "#FFFFFF"; // default to white
 	var colorTemplate = _.template($('#color-template').html());
 
@@ -12,13 +12,14 @@ $(function() {
 	// when the file is done being rendered to svg
 	myDropzone.on("success", function(file, response) {
 		// load the svg string from the response
-		fabric.loadSVGFromString(response.svg, function(objects, options) {
+		fabric.loadSVGFromString(response.svg, function(objects) {
 			// reset canvas
 			canvas.clear();
 			// remove all color swatches
 			$('#swatches').empty();
 			// reset colors Set
-			colors = new Set();
+			// colors = new Set();
+			colorsHash = {};
 			// reset activeColor
 			activeColor = "#FFFFFF";
 
@@ -26,8 +27,13 @@ $(function() {
 			for(var i = 0; i < objects.length; i++) {
 
 				var path = objects[i];
-				// collect unique colors
-				colors.add(path.getFill());
+
+				var pathColor = path.getFill();
+				
+				// collect paths for unique color
+				colorsHash[pathColor] = colorsHash[pathColor] || [];
+				colorsHash[pathColor].push(path);
+
 				// set color to white
 				path.setFill('#FFFFFF');
 				// draw the outline
@@ -45,7 +51,7 @@ $(function() {
 
 			// iterate through colors
 			var index = 0;
-			colors.forEach(function(color) {
+			for(var color in colorsHash) {
 				index++;
 				var colorInfo = {
 					index: index,
@@ -55,7 +61,7 @@ $(function() {
 				var $swatch = $(colorTemplate(colorInfo));
 				$('#swatches').append($swatch);
 				addSwatchEventHandlers();
-			});
+			}
 		});
 	});
 
@@ -67,6 +73,15 @@ $(function() {
 			activeColor = $(this).attr('data-color');
 			$('#eraser').removeClass('active');
 		});
+	};
+
+	var getAllPathsForPath = function(path) {
+		for(var color in colorsHash) {
+			var pathsForColor = colorsHash[color];
+			if(pathsForColor.indexOf(path) >= 0) {
+				return pathsForColor;
+			}
+		}
 	};
 
 	// erase tool
@@ -97,9 +112,17 @@ $(function() {
 
 	canvas.on('mouse:down', function(options) {
 		// find path at click
-		var path = options.target;
-		// set path fill color
-		path.setFill(activeColor);
+		var originalPath = options.target;
+
+		// find me all paths of this path's color
+		var allPaths = getAllPathsForPath(originalPath);
+
+		for(var i = 0; i < allPaths.length; i++) {
+			var path = allPaths[i];
+			// set path fill color
+			path.setFill(activeColor);
+		}
+
 		// re-render the canvas
 		canvas.renderAll();
 		$('#download').attr('href', canvas.toDataURL({ format: 'jpeg' }));
