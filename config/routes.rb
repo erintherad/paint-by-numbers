@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post '/render-svg', to: 'svg#create'
 
   resources :paintings
+
+  resources :favorites, only: [:create]
 end
 
 #        Prefix Verb   URI Pattern                   Controller#Action

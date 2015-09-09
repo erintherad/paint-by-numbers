@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
 
 	has_many :paintings, dependent: :destroy
 
+  has_many :favorites, dependent: :destroy
+
+  has_many :favorite_paintings, through: :favorites, source: :painting
+
 	validates :email, :presence => true, uniqueness: true
   validates :password_digest, :presence => true, confirmation: true
 

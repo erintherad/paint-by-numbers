@@ -18,7 +18,7 @@
 	<!-- /.row -->
 
 	<!-- Page Features -->
-	<div class="row text-center">
+	<div class="row">
 		<% @paintings.each do |painting| %>
 			<div class="col-md-3 col-sm-6">
 				<div class="thumbnail">
@@ -26,6 +26,17 @@
 					<div class="caption">
 						<hr>
 						<h3><a href="<%= painting_path(painting) %>"><%= painting.title %></a></h3>
+						<p>
+							<a href="javascript:void(0)" class="favorite" data-id="<%= painting.id %>">
+								<% if current_user.favorite_paintings.include? painting %>
+								<span class="glyphicon glyphicon-star"></span>
+								<% else %>
+								<span class="glyphicon glyphicon-star-empty"></span>
+								<% end %>
+							</a>
+
+							<span class="favorite-count"><%= painting.users.count %></span>
+						</p>
 						<p>By <%= painting.user.name %></p>
 						<%= link_to "Share", painting_path(painting), class: "btn btn-default" %>
 						<div>

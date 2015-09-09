@@ -2,6 +2,10 @@ class Painting < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :favorites, dependent: :destroy
+	
+	has_many :users, through: :favorites
+
 	has_attached_file :url,
 										:styles => { :medium => "500x500#" },
 										:storage => :s3,
