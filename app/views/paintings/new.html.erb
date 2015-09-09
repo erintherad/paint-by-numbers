@@ -1,8 +1,8 @@
-<h1>Create a new Painting</h1>
-
-<div class="container-fluid">
+<div class="container-fluid create">
 	<div class="row">
 		<div class="col-md-3">
+			<h1>Create a new Painting</h1>
+			<hr>
 			<%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
 			<% end %>
 			<h3>Tools:</h3>
@@ -15,7 +15,7 @@
 				<%= form_for :painting, :html => { :multipart => true }, :url => paintings_url do |f| %>
 					<%= f.text_field :title, placeholder: "Title your painting", class: "form-control" %>
 					<%= f.hidden_field :url, class: "form-control" %><br>
-					<%= f.submit "Save", class: "btn btn-primary" %>
+					<%= f.submit "Save", class: "btn btn-default" %>
 				<% end %>
 			<% else %>
 				<div class="text-center">
