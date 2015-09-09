@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @paintings = current_user.paintings.order(created_at: :desc)
+    @paintings = current_user.paintings.order(created_at: :desc).page(params[:page]).per(4)
   end
 
   def update
