@@ -10,9 +10,11 @@ PbN was created by an artist/web developer, Erin Mahoney, who coincidentally can
 This app was created using:
 
 - Ruby on Rails
-- Angular
+- jQuery
 - Bootstrap
-- Caman.js
+- Autotrace
+- RMagick
+- Fabricjs
 
 ---
 
