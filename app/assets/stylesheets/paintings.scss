@@ -19,15 +19,30 @@
 }
 
 .swatch {
-	width: 60px;
-	height: 40px;
+	width: 50px;
+	height: 30px;
 	border-style: solid;
 	display: inline-block;
 	list-style-type: none;
+}
+.list-group-item:last-child {
+	margin-bottom: 5px;
 }
 .post {
 	margin-top: 100px;
 }
 .create {
 	margin-top: 75px;
+}
+.tools {
+	border-style: inset;
+	background-color: #F5F8FA;
+	margin-left: 10px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.key {
+	border-style: inset;
+	background-color: #F5F8FA;
+	padding-bottom: 20px;
 }

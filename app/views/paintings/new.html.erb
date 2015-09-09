@@ -1,6 +1,6 @@
 <div class="container-fluid create">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 tools">
 			<h1>Create a new Painting</h1>
 			<hr>
 			<%= form_tag({ controller: 'svg', action: 'create' }, { id: 'fileUpload', class: 'dropzone' }) do %>
@@ -28,13 +28,16 @@
 			<canvas id="canvas"></canvas>
 		</div>
 		<div class="col-md-3 key">
-			<h3>Choose a color: </h3>
+			<h3 class="">Choose a color: </h3>
+			<hr>
 			<ul id="swatches" class="list-group">
 				<script type="text/template" id="color-template">
-					<li class="list-group-item color-picker" data-color="<%%= color %>">
-						<span><%%= index %> = </span>
-						<div class="swatch" style="background-color: <%%= color %>"></div>
-					</li>
+					<div class="col-md-4">
+						<li class="color-picker list-group-item" data-color="<%%= color %>">
+							<span><%%= index %> = </span>
+							<div class="swatch" style="background-color: <%%= color %>"></div>
+						</li>
+					</div>
 				</script>
 			</ul>
 		</div>
