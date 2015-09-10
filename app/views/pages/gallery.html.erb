@@ -18,7 +18,7 @@
 	<!-- /.row -->
 
 	<!-- Page Features -->
-	<div class="row">
+	<div class="row text-center">
 		<% @paintings.each do |painting| %>
 			<div class="col-md-3 col-sm-6">
 				<div class="thumbnail">
@@ -45,7 +45,9 @@
 				</div>
 			</div>
 		<% end %>
-		<p class="text-center"><%= paginate @paintings %></p>
+		<div class="text-center">
+			><%= paginate @paintings %>
+		</div>
 	</div>
 	<!-- /.row -->
 </div>
