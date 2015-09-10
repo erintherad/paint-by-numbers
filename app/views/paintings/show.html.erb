@@ -4,7 +4,8 @@
 			<h3><%= @painting.title %></h3><br>
 			<h4>By <%= @painting.user.name %></h4>
 			<hr class="style-one">
-				<%= link_to "Go back", :back, class: "btn btn-default" %>
+				<%= link_to " back", :back, class: "glyphicon glyphicon-arrow-left btn btn-default" %>
+				<a href="/create" class="btn btn-default">Make a new painting</a>
 				<a class="btn btn-default" href="https://www.facebook.com/sharer/sharer.php?" + "<%= painting_path %>" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a>
 				<a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= painting_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
 		</div>
