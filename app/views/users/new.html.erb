@@ -6,6 +6,7 @@
 	<div class="form-group">
 
     <!-- Enables flash messages within the form for superior UX -->
+    <!-- CJ: ok to do put them in the form like this, but make sure you have flash rendered on every page of your site to handle messages from any controller (good opportunity for a partial) -->
 		<% flash.each do |name, msg| %>
 	    <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
 	  <% end %>

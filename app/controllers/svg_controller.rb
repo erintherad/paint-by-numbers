@@ -1,3 +1,7 @@
+# CJ: nice job on this image-processing logic!
+# any type of processing in the controller that's not directly
+# part of request/response is a good candidate for a service class
+# read more here: https://blog.engineyard.com/2014/keeping-your-rails-controllers-dry-with-services
 class SvgController < ApplicationController
 	def create
 		# accept image data from request

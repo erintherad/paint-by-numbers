@@ -25,6 +25,7 @@
 					<img src="<%= painting.url %>" alt="">
 					<div class="caption">
 						<hr>
+						<!-- CJ: use `link_to` helper here -->
 						<h3><a href="<%= painting_path(painting) %>"><%= painting.title %></a></h3>
 						<p>
 							<a href="javascript:void(0)" class="favorite" data-id="<%= painting.id %>">

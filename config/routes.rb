@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
+  # users routes
+  # CJ: since you have custom routes for `new` and `show`,
+  # you can include those in your `except`
   resources :users, except: [:destroy]
-   # users routes
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"
   # get '/users/edit', to: "users#edit"

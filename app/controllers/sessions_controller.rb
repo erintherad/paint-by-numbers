@@ -20,17 +20,19 @@ class SessionsController < ApplicationController
     else
       # If user's login doesn't work, send them back to the login form.
       flash[:error] = "Oops! Check your email and password and try again!"
+      # CJ: use `login_path`
       redirect_to '/login'
     end
   end
 
   def destroy
     session[:user_id] = nil
+    # CJ: use `root_path`
     redirect_to '/'
   end
 
   private
     def user_params
       params.require(:user).permit(:email, :password)
-  end
+    end
 end
