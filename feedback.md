@@ -15,7 +15,7 @@
 * Consider adding an `.example_env` file NOT included in your `.gitignore` that lists examples of the secret keys you used. This will help other devs to know when environment variables they need when pulling down the code. Something like this:
 
   ```ruby
-  # .sample_env
+  # .example_env
   S3_BUCKET=YOUR_S3_BUCKET
   S3_KEY=YOUR_S3_KEY
   ```
