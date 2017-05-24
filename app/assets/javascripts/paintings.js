@@ -1,3 +1,6 @@
+// CJ: great use of commenting in this file - very easy for
+// other developers to follow the logic!
+
 Dropzone.autoDiscover = false;
 
 $(function() {
@@ -65,6 +68,12 @@ $(function() {
 		});
 	});
 
+
+	// CJ: awesome helper functions
+	// I would move these closer to the top (under the var declarations)
+	
+	// CJ: this is great -- would also move `eraser` and `reset`
+	// click events into an `addEventHandlers` function
 	// choose color from key
 	var addSwatchEventHandlers = function() {
 		$('.color-picker').on('click', function(event) {
@@ -115,6 +124,7 @@ $(function() {
 		var originalPath = options.target;
 
 		// find me all paths of this path's color
+		// CJ: nice use of a helper function and creative way of solving this problem!
 		var allPaths = getAllPathsForPath(originalPath);
 
 		for(var i = 0; i < allPaths.length; i++) {

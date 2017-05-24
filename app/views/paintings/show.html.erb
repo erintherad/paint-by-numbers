@@ -1,12 +1,12 @@
-	<div class="col-md-6 col-md-offset-3 post">
-		<div class="well text-center">
-			<%= image_tag @painting.url, class: "center-block" %>
-			<h3><%= @painting.title %></h3><br>
-			<h4>By <%= @painting.user.name %></h4>
-			<hr class="style-one">
-				<%= link_to " back", :back, class: "glyphicon glyphicon-arrow-left btn btn-default" %>
-				<a href="/create" class="btn btn-default">Make a new painting</a>
-				<a class="btn btn-default" href="https://www.facebook.com/sharer/sharer.php?" + "<%= painting_path %>" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a>
-				<a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= painting_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
-		</div>
+<div class="col-md-6 col-md-offset-3 post">
+	<div class="well text-center">
+		<%= image_tag @painting.url, class: "center-block" %>
+		<h3><%= @painting.title %></h3><br>
+		<h4>By <%= @painting.user.name %></h4>
+		<hr class="style-one">
+			<%= link_to " back", :back, class: "glyphicon glyphicon-arrow-left btn btn-default" %>
+			<a href="/create" class="btn btn-default">Make a new painting</a>
+			<a class="btn btn-default" href="https://www.facebook.com/sharer/sharer.php?" + "<%= painting_path %>" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a>
+			<a class="btn btn-default" href="https://twitter.com/share?url=" + "<%= painting_path %>" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a>
 	</div>
+</div>

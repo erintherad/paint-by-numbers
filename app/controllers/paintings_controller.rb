@@ -13,6 +13,9 @@ class PaintingsController < ApplicationController
       redirect_to gallery_path
     else
       flash[:error] = "Oops! Try saving your painting again."
+      # CJ: don't think you need to render json here since you're not requesting
+      # json when you request this controller action, and you can move
+      # `@painting.errors.full_messages` to the flash message
       render json: { errors: @painting.errors.full_messages }, status: :unprocessable_entity
     end
   end

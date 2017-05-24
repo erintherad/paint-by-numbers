@@ -18,6 +18,8 @@
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <!-- CJ: remember meta viewport tag to make responsive! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -36,6 +38,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- CJ: use `link_to` helper for all nav links -->
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><a href="/logout">Logout</a></li>

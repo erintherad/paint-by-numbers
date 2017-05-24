@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
- before_filter :authorize, only: [:show]
+  # CJ: include `edit` and `update` in methods to `authorize`
+  # will avoid the check for `current_user` you currently have in `update`
+  before_filter :authorize, only: [:show]
 
   def index
   end
@@ -22,6 +24,8 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect_to profile_path
       else
+        # CJ: I would flash the error messages here so the user
+        # knows what to fix (`user.errors.full_messages.join("")`)
         flash[:error] = "Oops! Try again to save your account!"
         redirect_to signup_path
       end
@@ -42,6 +46,7 @@ class UsersController < ApplicationController
       redirect_to profile_path
       # flash[:success] = "Profile successfully updated!"
     else
+      # CJ: use `root_path`
       redirect_to '/'
     end
   end
